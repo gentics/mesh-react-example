@@ -14,5 +14,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "proxy": {
+    "/api/v1": {
+      "target": "https://demo.getmesh.io",
+      "changeOrigin": true
+    }
   }
 }
