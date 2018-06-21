@@ -5,9 +5,11 @@ import Mesh from './Mesh';
 export default function App() {
   return (
     <Router>
-      <Route path="/" render={route =>
-        <Mesh.Webroot path={route.location.pathname} />
-      } />
+      <div>
+        <Route path="/" render={route =>
+          <Mesh.Webroot path={route.location.pathname} />
+        } />
+      </div>
     </Router>
   )
 }
