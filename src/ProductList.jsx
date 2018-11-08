@@ -10,7 +10,7 @@ export default function ProductList({ match }) {
   }
   const category = productResponse.node;
   return (
-    <div>
+    <div className="product-list">
       <h1>{category.fields.name}</h1>
       <p>{category.fields.description}</p>
       <div className="row">
@@ -18,7 +18,7 @@ export default function ProductList({ match }) {
           <Product product={product} key={product.uuid} />
         ))}
       </div>
-    </div >
+    </div>
   );
 }
 

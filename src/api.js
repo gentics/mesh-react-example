@@ -52,6 +52,28 @@ export async function getProducts(uuid) {
   `, {uuid});
 }
 
+export function getProduct(uuid) {
+  return graphQl(`
+  query Product($uuid: String) {
+    node(uuid: $uuid) {
+      fields {
+        ... on vehicle {
+          name
+          description
+          SKU
+          price
+          weight
+          stocklevel
+          vehicleImage {
+            path
+          }
+        }
+      }
+    }
+  }
+  `, {uuid});
+}
+
 export function getProject() {
   return get(`/demo`)
 }
