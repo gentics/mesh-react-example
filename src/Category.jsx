@@ -27,7 +27,7 @@ function VehicleTeaser({ vehicle }) {
           </h3>
 
           <Link to={vehicle.path}>
-            <img alt="" className="img-thumbnail" src={`${vehicle.fields.vehicleImage.path}?w=328`} />
+            <img alt="" className="img-thumbnail" src={`/api/v1/demo/webroot${vehicle.fields.vehicleImage.path}?w=328`} />
           </Link>
           <div className="description" dangerouslySetInnerHTML={{ __html: vehicle.fields.description }}></div>
 

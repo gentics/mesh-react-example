@@ -1,23 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getNavigation, usePromise } from './api';
 
 export default function Navigation() {
-  const navResponse = {
-    project: {
-      rootNode: {
-        children: {
-          elements: [
-            {
-              path: "/aircrafts",
-              fields: {
-                name: "Aircrafts"
-              }
-            }
-          ]
-        }
-      }
-    }
-  };
+  const navResponse = usePromise(() => getNavigation(), []);
   return (
     <nav className="navbar navbar-default">
       <div className="container-fluid">

@@ -39,7 +39,7 @@ export default function Vehicle({node}) {
           </form>
         </div>
         <div className="col-md-6">
-          <img className="img-thumbnail" src={`${node.fields.vehicleImage.path}`} alt="" />
+          <img className="img-thumbnail" src={`/api/v1/demo/webroot/${node.fields.vehicleImage.path}`} alt="" />
         </div>
       </div>
     </div>
