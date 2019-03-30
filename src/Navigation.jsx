@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom';
 
 export default function Navigation() {
   const navResponse = {
-    path: "/aircrafts",
     project: {
       rootNode: {
         children: {
           elements: [
-            { 
-              path:  "/aircrafts",
+            {
+              path: "/aircrafts",
               fields: {
                 name: "Aircrafts"
               }
