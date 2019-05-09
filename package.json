@@ -7,7 +7,8 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.8"
+    "react-scripts": "^3.0.1",
+    "vertx3-eventbus-client": "^3.7.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -24,5 +25,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "http://localhost:8080"
+  "proxy": "https://demo.getmesh.io"
 }

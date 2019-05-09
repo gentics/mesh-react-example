@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import WelcomeScreen from './WelcomeScreen';
 import Category from './Category';
 import Vehicle from './Vehicle';
-import { useWebroot } from './api';
+import { getNodeByPath } from './api';
+import useWebsocketBridge from './eventbus';
 
 export default function Content() {
   return (
@@ -20,10 +21,18 @@ const NodeComponents = {
 }
 
 const WebrootContent = ({ location }) => {
-  const node = useWebroot(location.pathname);
-  if (!node) {
+  
+  const [nodeResponse, setNodeResponse] = useState();
+  useWebsocketBridge(async () => { setNodeResponse(await getNodeByPath(location.pathname)) });
+
+  useEffect(() => {
+    getNodeByPath(location.pathname).then(setNodeResponse);  
+  });
+
+  if (!nodeResponse) {
     return null;
   }
-  const NodeComponent = NodeComponents[node.schema.name];
-  return <NodeComponent node={node} />
+  
+  const NodeComponent = NodeComponents[nodeResponse.schema.name];
+  return <NodeComponent node={nodeResponse} />
 }

@@ -20,8 +20,9 @@ export async function getNavigation() {
   }`);
 }
 
-export function useWebroot(path) {
-  return usePromise(() => graphQl(`
+
+export async function getNodeByPath(path) {
+  return graphQl(`
   query Webroot($path: String) {
     node(path: $path) {
       schema {
@@ -33,7 +34,7 @@ export function useWebroot(path) {
   }
   ${categoryFragment}
   ${productFragment}
-  `, {path}).then(response => response.node), [path])
+  `, {path}).then(response => response.node);
 }
 
 const categoryFragment = `
