@@ -27,7 +27,7 @@ const WebrootContent = ({ location }) => {
 
   useEffect(() => {
     getNodeByPath(location.pathname).then(setNodeResponse);  
-  });
+  }, [location.pathname]);
 
   if (!nodeResponse) {
     return null;

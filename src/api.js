@@ -82,12 +82,12 @@ fragment product on Node {
   }
 }`
 
-export function usePromise(promiseFn, changes) {
+export function usePromise(promiseFn) {
   const [state, setState] = useState();
 
   useEffect(() => {
     promiseFn().then(setState)
-  }, changes)
+  }, [promiseFn])
 
   return state;
 }

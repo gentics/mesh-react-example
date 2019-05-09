@@ -31,5 +31,5 @@ export default function useWebsocketBridge(callback) {
             }
             console.log("Unmount");
         }
-    }, []);
+    });
 }
