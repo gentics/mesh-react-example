@@ -5,15 +5,12 @@ let eb = new EventBus("/api/v1/eventbus")
 eb.enableReconnect(true);
 
 let callbacks = [];
-let espCallbacks = [];
-
 
 eb.onopen = function () {
     console.log("Connect eventbus");
     registerEvent("mesh.node.updated", callbacks);
     registerEvent("mesh.node.created", callbacks);
     registerEvent("mesh.node.deleted", callbacks);
-    registerEvent("custom.event", espCallbacks);
 }
 
 function registerEvent(eventName, callbacks) {
@@ -21,20 +18,6 @@ function registerEvent(eventName, callbacks) {
         callbacks.forEach(cb => cb());
         console.log('Received a message: ' + JSON.stringify(message));
     });
-}
-
-export function useWebsocketESPBridge(callback) {
-    useEffect(() => {
-        espCallbacks.push(callback);
-        console.log("Mount ESP");
-        return () => {
-            var index = espCallbacks.indexOf(callback);
-            if (index > -1) {
-                espCallbacks.splice(index, 1);
-            }
-            console.log("Unmount ESP");
-        }
-    }, []);
 }
 
 export default function useWebsocketBridge(callback) {
