@@ -21,10 +21,15 @@ const NodeComponents = {
 }
 
 const WebrootContent = ({ location }) => {
-  
+  // Create state for the component
   const [nodeResponse, setNodeResponse] = useState();
-  useWebsocketBridge(async () => { setNodeResponse(await getNodeByPath(location.pathname)) });
 
+  // Register event callback to update the state when content gets changed in Gentics Mesh
+  useWebsocketBridge(() => {
+    getNodeByPath(location.pathname).then(setNodeResponse);
+  });
+
+  // Use effect hook to set the content when the path changes
   useEffect(() => {
     getNodeByPath(location.pathname).then(setNodeResponse);  
   }, [location.pathname]);
