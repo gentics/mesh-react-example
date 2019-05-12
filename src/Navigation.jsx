@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getNavigation, usePromise } from './api';
+import { getNavigation } from './api';
 
 export default function Navigation() {
-  const navResponse = usePromise(() => getNavigation());
+
+  const [navResponse, setNavResponse] = useState();
+
+  useEffect(() => {
+    getNavigation().then(setNavResponse);
+  }, []);
+
+  if (!navResponse) {
+    return null;
+  }
+
   return (
     <nav className="navbar navbar-default">
       <div className="container-fluid">
