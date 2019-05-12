@@ -9,7 +9,7 @@ export default function Vehicle({node}) {
           <form>
             <div className="form-group">
               <label htmlFor="name">Name</label>
-              <input className="form-control" id="name" name="name" placeholder="Name" defaultValue={node.fields.name} />
+              <input className="form-control" id="name" name="name" placeholder="Name" readOnly value={node.fields.name} />
             </div>
 
             <div className="form-group">
@@ -19,21 +19,21 @@ export default function Vehicle({node}) {
 
             <div className="form-group">
               <label htmlFor="sku">SKU</label>
-              <input className="form-control" id="sku" name="SKU" placeholder="SKU" defaultValue={node.fields.SKU} type="number" />
+              <input className="form-control" id="sku" name="SKU" placeholder="SKU" readOnly value={node.fields.SKU} type="number" />
             </div>
 
             <div className="row">
               <div className="col-sm-4 form-group">
                 <label htmlFor="price">Price</label>
-                <input className="form-control" id="price" min="0" name="price" step="0.01" type="number" defaultValue={node.fields.price} />
+                <input className="form-control" id="price" min="0" name="price" step="0.01" type="number" readOnly value={node.fields.price} />
               </div>
               <div className="col-sm-4 form-group">
                 <label htmlFor="weight">Weight</label>
-                <input className="form-control" id="weight" min="0" name="weight" type="number" defaultValue={node.fields.weight} />
+                <input className="form-control" id="weight" min="0" name="weight" type="number" readOnly value={node.fields.weight} />
               </div>
               <div className="col-sm-4 form-group">
                 <label htmlFor="stocklevel">Stock Level</label>
-                <input className="form-control" id="stocklevel" min="0" name="stocklevel" type="number" defaultValue={node.fields.stocklevel} />
+                <input className="form-control" id="stocklevel" min="0" name="stocklevel" type="number" readOnly value={node.fields.stocklevel} />
               </div>
             </div>
           </form>

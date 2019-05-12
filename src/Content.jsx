@@ -37,7 +37,7 @@ const WebrootContent = ({ location }) => {
   if (!nodeResponse) {
     return null;
   }
-  
+
   const NodeComponent = NodeComponents[nodeResponse.schema.name];
   return <NodeComponent node={nodeResponse} />
 }
