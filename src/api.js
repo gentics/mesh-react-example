@@ -78,6 +78,13 @@ export function getProject() {
   return get(`/demo`)
 }
 
+/**
+ * Calls a promise and eventually returns its value. Before that, undefined is returned.
+ * This will throw a warning and should be replaced with React Suspense for data fetching when that feature is released.
+ * 
+ * @param promiseFn A function that returns a promise
+ * @param changes An array of variables used in promiseFn. This will be used for the useEffect hook.
+ */
 export function usePromise(promiseFn, changes) {
   const [state, setState] = useState();
 
