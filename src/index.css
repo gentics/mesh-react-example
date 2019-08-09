@@ -28,3 +28,7 @@
 .product-detail .img-thumbnail {
   width: 100%;
 }
+
+dl {
+  font-size: 16px;
+}

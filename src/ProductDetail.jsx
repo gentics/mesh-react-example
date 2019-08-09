@@ -13,44 +13,35 @@ export default function ProductDetail({match}) {
       <h1>{product.fields.name}</h1>
       <div className="row">
         <div className="col-md-6">
-          <form>
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input className="form-control" id="name" name="name" placeholder="Name" defaultValue={product.fields.name} />
-            </div>
+            <dl className="form-group">
+              <dt>Name</dt>
+              <dd>{product.fields.name}</dd>
+            </dl>
 
-            <div className="form-group">
-              <label htmlFor="description">Description</label>
-              <textarea className="form-control" id="description" name="description" placeholder="Description" defaultValue={product.fields.description} rows="7"></textarea>
-            </div>
+            <dl className="form-group">
+              <dt>Description</dt>
+              <dd dangerouslySetInnerHTML={{__html: product.fields.description}} />
+            </dl>
 
-            <div className="form-group">
-              <label htmlFor="sku">SKU</label>
-              <input className="form-control" id="sku" name="SKU" placeholder="SKU" defaultValue={product.fields.SKU} type="number" />
-            </div>
-
-            <div className="row">
-              <div className="col-sm-4 form-group">
-                <label htmlFor="price">Price</label>
-                <input className="form-control" id="price" min="0" name="price" step="0.01" type="number" defaultValue={product.fields.price} />
-              </div>
-              <div className="col-sm-4 form-group">
-                <label htmlFor="weight">Weight</label>
-                <input className="form-control" id="weight" min="0" name="weight" type="number" defaultValue={product.fields.weight} />
-              </div>
-              <div className="col-sm-4 form-group">
-                <label htmlFor="stocklevel">Stock Level</label>
-                <input className="form-control" id="stocklevel" min="0" name="stocklevel" type="number" defaultValue={product.fields.stocklevel} />
-              </div>
-            </div>
+            <dl className="form-group">
+              <dt>SKU</dt>
+              <dd>{product.fields.SKU}</dd>
+            </dl>
 
             <div className="row">
-              <div className="col-xs-4">
-                <button className="btn btn-primary btn-lg" type="submit" disabled>Submit</button>
-              </div>
+              <dl className="col-sm-4 form-group">
+                <dt>Price</dt>
+                <dd>{product.fields.price}</dd>
+              </dl>
+              <dl className="col-sm-4 form-group">
+                <dt>Weight</dt>
+                <dd>{product.fields.weight}</dd>
+              </dl>
+              <dl className="col-sm-4 form-group">
+                <dt>Stock Level</dt>
+                <dd>{product.fields.stocklevel}</dd>
+              </dl>
             </div>
-
-          </form>
         </div>
         <div className="col-md-6">
           <img className="img-thumbnail" src={`/api/v1/demo/webroot/${product.fields.vehicleImage.path}`} alt="" />
